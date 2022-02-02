@@ -1,20 +1,36 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity, TextInput, Touchable } from 'react-native';
+import { useDispatch } from 'react-redux';
 import colors from '../assets/colors/colors';
+import { addCripto } from '../store/actions/cripto.actions';
 
 const AddCryptoScreen: FC = ({ navigation }: any) => {
+
+  const dispatch = useDispatch()
+  const [coin, setCoin] = useState<any>('XRP');
+
+  const handlerAddCoin = () => {
+    dispatch(addCripto(coin))
+    navigation.navigate('Home')
+  }
+
   return (
     <View style={styles.addCryptoContainer}>
 
       <SafeAreaView>
         <View style={{ paddingHorizontal: 24 }}>
           <TouchableOpacity
+
             onPress={() => navigation.navigate('Home')}>
             <Text style={styles.backText}>Back to list</Text>
           </TouchableOpacity>
+
           <View style={styles.inputContainer}>
             <Text style={styles.addCryptoText}>Add a Cryptocurrency</Text>
+
             <TextInput
+              onChange={text => setCoin(text)}
+              value={coin}
               style={styles.input}
               placeholder='Use a name or ticker symbol...'
             />
@@ -22,7 +38,7 @@ const AddCryptoScreen: FC = ({ navigation }: any) => {
           </View>
 
           <TouchableOpacity
-            onPress={() => console.log('Buenas')}
+            onPress={handlerAddCoin}
             style={styles.addButton}>
             <Text style={styles.addText}>Add</Text>
           </TouchableOpacity>

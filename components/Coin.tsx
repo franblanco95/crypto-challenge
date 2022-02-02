@@ -1,14 +1,8 @@
 import React, { FC } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
-// import Icon from 'react-native-vector-icons/Ionicons';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
-// import Feather from 'react-native-vector-icons/Feather';
-
-// import FeatherIcon from 'react-native-vector-icons/Feather';
-
-
-// Feather.loadFont().then();
-
+MaterialIcon.loadFont();
 
 const Coin: FC = ({ crypto }: any) => {
     return (
@@ -22,11 +16,13 @@ const Coin: FC = ({ crypto }: any) => {
                     <Text style={styles.cryptoTextInitials}>{crypto.initials}</Text>
                 </View>
             </View>
-            {/* <FeatherIcon name="ios-person" size={30} color="#4F8EF7" />
-            <FeatherIcon name="film" size={30} color="#4F8EF7" /> */}
+
             <View style={styles.cryptoValuesContainer}>
                 <Text style={styles.cryptoTextName}>$ {crypto.value}</Text>
-                <Text style={styles.cryptoTextMetric}>{crypto.metric} %</Text>
+                <View style={{ flexDirection: 'row' }}>
+                    <MaterialIcon name={crypto.icon} size={17} color={crypto.color} />
+                    <Text style={{ color: (crypto.color) }}>{crypto.metric} %</Text>
+                </View>
             </View>
 
         </View>
@@ -57,11 +53,7 @@ const styles = StyleSheet.create({
         fontSize: 14,
         color: '#56626E'
     },
-    cryptoTextMetric: {
-        fontWeight: '600',
-        color: '#0A8150',
 
-    },
     cryptoValuesContainer: {
         alignItems: 'flex-end'
     }

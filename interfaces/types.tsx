@@ -5,4 +5,6 @@ export interface Cripto {
     image: string,
     value: number,
     metric: number,
+    icon: string,
+    color: string,
 }

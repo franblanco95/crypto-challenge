@@ -1,10 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, ScrollView, Image } from 'react-native';
+import { useSelector } from 'react-redux';
 import colors from '../assets/colors/colors';
 import Coin from '../components/Coin';
-import { crypto } from '../constants/crypto';
+import { Cripto } from '../interfaces/types';
 
 const HomeScreen: FC = ({ navigation }: any) => {
+
+  const cripto = useSelector(state => state.cripto.list2)
+
   return (
     <ScrollView style={styles.homeContainer}>
 
@@ -18,7 +22,7 @@ const HomeScreen: FC = ({ navigation }: any) => {
       {/* Crypto Coins */}
 
       <View>
-        {crypto.map((item) => (
+        {cripto?.map((item: Cripto) => (
           <Coin key={item.id} crypto={item} />
 
         ))}

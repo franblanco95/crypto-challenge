@@ -10,6 +10,8 @@ export const crypto: Cripto[] = [
         image: require('../assets/images/btc.png'),
         value: 7215.68,
         metric: 1.82,
+        icon: 'north-east',
+        color: 'green',
     },
     {
         id: 2,
@@ -18,6 +20,8 @@ export const crypto: Cripto[] = [
         image: require('../assets/images/ethereum.png'),
         value: 146.83,
         metric: 1.46,
+        icon: 'north-east',
+        color: 'green',
     },
     {
         id: 3,
@@ -26,6 +30,8 @@ export const crypto: Cripto[] = [
         image: require('../assets/images/xrp.png'),
         value: 0.220568,
         metric: 2.47,
+        icon: 'south-west',
+        color: 'red',
     },
 
 ]

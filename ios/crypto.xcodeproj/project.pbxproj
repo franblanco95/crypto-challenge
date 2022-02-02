@@ -41,6 +41,22 @@
 		6C97AB639B58BBB4B15BBE30 /* Pods-crypto-cryptoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto-cryptoTests.debug.xcconfig"; path = "Target Support Files/Pods-crypto-cryptoTests/Pods-crypto-cryptoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = crypto/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-crypto-cryptoTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-crypto-cryptoTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BDC7EDCC27AB13B000557187 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Fontisto.ttf; sourceTree = "<group>"; };
+		BDC7EDCD27AB13B000557187 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Octicons.ttf; sourceTree = "<group>"; };
+		BDC7EDCE27AB13B000557187 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Feather.ttf; sourceTree = "<group>"; };
+		BDC7EDCF27AB13B000557187 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Entypo.ttf; sourceTree = "<group>"; };
+		BDC7EDD027AB13B000557187 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Brands.ttf; sourceTree = "<group>"; };
+		BDC7EDD127AB13B000557187 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
+		BDC7EDD227AB13B000557187 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AntDesign.ttf; sourceTree = "<group>"; };
+		BDC7EDD327AB13B000557187 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Foundation.ttf; sourceTree = "<group>"; };
+		BDC7EDD427AB13B000557187 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
+		BDC7EDD527AB13B000557187 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Solid.ttf; sourceTree = "<group>"; };
+		BDC7EDD627AB13B000557187 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome5_Regular.ttf; sourceTree = "<group>"; };
+		BDC7EDD727AB13B000557187 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FontAwesome.ttf; sourceTree = "<group>"; };
+		BDC7EDD827AB13B000557187 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Zocial.ttf; sourceTree = "<group>"; };
+		BDC7EDD927AB13B000557187 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = EvilIcons.ttf; sourceTree = "<group>"; };
+		BDC7EDDA27AB13B000557187 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimpleLineIcons.ttf; sourceTree = "<group>"; };
+		BDC7EDDB27AB13B000557187 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialIcons.ttf; sourceTree = "<group>"; };
 		C0A881CF5CF3F2B244570E2A /* Pods-crypto.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto.debug.xcconfig"; path = "Target Support Files/Pods-crypto/Pods-crypto.debug.xcconfig"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-crypto.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-crypto.release.xcconfig"; path = "Target Support Files/Pods-crypto/Pods-crypto.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -116,6 +132,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				BDC7EDCB27AB13B000557187 /* Fonts */,
 				13B07FAE1A68108700A75B9A /* crypto */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* cryptoTests */,
@@ -137,6 +154,30 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		BDC7EDCB27AB13B000557187 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				BDC7EDCC27AB13B000557187 /* Fontisto.ttf */,
+				BDC7EDCD27AB13B000557187 /* Octicons.ttf */,
+				BDC7EDCE27AB13B000557187 /* Feather.ttf */,
+				BDC7EDCF27AB13B000557187 /* Entypo.ttf */,
+				BDC7EDD027AB13B000557187 /* FontAwesome5_Brands.ttf */,
+				BDC7EDD127AB13B000557187 /* MaterialCommunityIcons.ttf */,
+				BDC7EDD227AB13B000557187 /* AntDesign.ttf */,
+				BDC7EDD327AB13B000557187 /* Foundation.ttf */,
+				BDC7EDD427AB13B000557187 /* Ionicons.ttf */,
+				BDC7EDD527AB13B000557187 /* FontAwesome5_Solid.ttf */,
+				BDC7EDD627AB13B000557187 /* FontAwesome5_Regular.ttf */,
+				BDC7EDD727AB13B000557187 /* FontAwesome.ttf */,
+				BDC7EDD827AB13B000557187 /* Zocial.ttf */,
+				BDC7EDD927AB13B000557187 /* EvilIcons.ttf */,
+				BDC7EDDA27AB13B000557187 /* SimpleLineIcons.ttf */,
+				BDC7EDDB27AB13B000557187 /* MaterialIcons.ttf */,
+			);
+			name = Fonts;
+			path = "../node_modules/react-native-vector-icons/Fonts";
+			sourceTree = "<group>";
+		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +186,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-crypto-cryptoTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-crypto-cryptoTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};

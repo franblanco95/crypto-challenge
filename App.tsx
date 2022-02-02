@@ -1,16 +1,17 @@
-import React,{FC} from 'react';
-import { StyleSheet} from 'react-native';
+import React, { FC } from 'react';
+import { Provider } from 'react-redux';
 import MainNavigator from './navigation/MainNavigator';
+import store from './store'
 
 const App: FC = () => {
-  
+
   return (
-    <MainNavigator/>
+    <Provider store={store}>
+      <MainNavigator />
+    </Provider>
   );
 };
 
-const styles = StyleSheet.create({
 
-});
 
 export default App;
