@@ -1,12 +1,18 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
-import AddCryptoScreen from '../screens/AddCryptoScreen';
-import colors from '../assets/colors/colors';
+import { readData } from '../store/actions/cripto.actions';
+import { useDispatch } from 'react-redux';
 
 const MainNavigator: FC = () => {
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(readData())
+  }, [])
 
   const Stack = createNativeStackNavigator();
 
@@ -24,7 +30,7 @@ const MainNavigator: FC = () => {
             title: 'Crypto Tracker Pro',
           }} />
 
-        <Stack.Screen name="AddCrypto" component={AddCryptoScreen} />
+
       </Stack.Navigator>
     </NavigationContainer>
   );

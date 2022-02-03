@@ -1,3 +1,5 @@
+// Constants Interfaces
+
 export interface Cripto {
     id: number,
     name: string,
@@ -8,3 +10,17 @@ export interface Cripto {
     icon: string,
     color: string,
 }
+
+// Actions Interfaces
+
+export interface AddAction {
+    type: 'ADD_CRIPTO';
+    payload?: Cripto;
+}
+
+export interface ReadAction {
+    type: 'READ_DATA';
+    payload?: Cripto[] | null;
+}
+
+export type Action = AddAction | ReadAction;

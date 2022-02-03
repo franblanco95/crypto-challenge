@@ -1,21 +1,26 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Dispatch } from "react";
+import { Action, Cripto } from "../../interfaces/types";
 
-export const ADD_CRIPTO = 'ADD_CRIPTO'
 export const READ_DATA = 'READ_DATA'
 
-export const addCripto = (coin: string) => ({
-    type: ADD_CRIPTO,
-    payload: coin
-})
-
 export const readData = () => {
-    return async dispatch => {
-        const coins = await AsyncStorage.getItem('@coin')
-        if (coins !== null) {
-            dispatch({
-                type: READ_DATA,
-                coins
-            })
-        }
+    return async (dispatch: Dispatch<Action>) => {
+        await AsyncStorage.getItem('@coin').then(data => {
+            if (data !== null) {
+                const array = JSON.parse(data);
+                console.log(array);
+                console.log(`Estoy en async storage ${array}`);
+
+                dispatch({
+                    type: READ_DATA,
+                    payload: array
+                })
+            } else {
+                console.log('No hay nada en async storage');
+            }
+        })
+
     }
 }
+

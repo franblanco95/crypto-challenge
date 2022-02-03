@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import MainNavigator from './navigation/MainNavigator';
 import store from './store'
 
+
 const App: FC = () => {
 
   return (

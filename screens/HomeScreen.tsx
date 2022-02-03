@@ -1,14 +1,14 @@
-import React, { FC, useEffect } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView, Image } from 'react-native';
+import React, { FC } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View, ScrollView, Image, Button } from 'react-native';
 import { useSelector } from 'react-redux';
 import colors from '../assets/colors/colors';
 import Coin from '../components/Coin';
 import { Cripto } from '../interfaces/types';
+import { RootState } from '../store';
 
 const HomeScreen: FC = ({ navigation }: any) => {
 
-  const cripto = useSelector(state => state.cripto.list2)
-
+  const cripto = useSelector((state: RootState) => state.cripto.list2)
   return (
     <ScrollView style={styles.homeContainer}>
 
@@ -27,7 +27,7 @@ const HomeScreen: FC = ({ navigation }: any) => {
 
         ))}
         <TouchableOpacity
-          onPress={() => navigation.navigate('AddCrypto')}
+          onPress={() => console.log('Futura Screen')}
           style={{ marginTop: 48 }}>
           <Text style={styles.addCryptoText}>+ Add a Cryptocurrency</Text>
         </TouchableOpacity>
