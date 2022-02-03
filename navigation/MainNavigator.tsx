@@ -1,9 +1,9 @@
 import React, { FC, useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import HomeScreen from '../screens/HomeScreen';
-import { readData } from '../store/actions/cripto.actions';
+import { readData } from '../store/actions/crypto.actions';
 import { useDispatch } from 'react-redux';
 
 const MainNavigator: FC = () => {

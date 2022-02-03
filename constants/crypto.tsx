@@ -1,8 +1,8 @@
 // import image1 from '../assets/images/btc.png'
 
-import { Cripto } from "../interfaces/types";
+import { Crypto } from "../interfaces/types";
 
-export const crypto: Cripto[] = [
+export const crypto: Crypto[] = [
     {
         id: 1,
         name: 'Bitcoin',

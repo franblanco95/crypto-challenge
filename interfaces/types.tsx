@@ -1,6 +1,6 @@
 // Constants Interfaces
 
-export interface Cripto {
+export interface Crypto {
     id: number,
     name: string,
     initials: string,
@@ -14,13 +14,13 @@ export interface Cripto {
 // Actions Interfaces
 
 export interface AddAction {
-    type: 'ADD_CRIPTO';
-    payload?: Cripto;
+    type: 'ADD_CRYPTO';
+    payload?: Crypto;
 }
 
 export interface ReadAction {
     type: 'READ_DATA';
-    payload?: Cripto[] | null;
+    payload?: Crypto[] | null;
 }
 
 export type Action = AddAction | ReadAction;
