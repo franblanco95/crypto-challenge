@@ -22,26 +22,20 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
 
   const list = useSelector((state: RootState) => state.cripto.cryptoList)
 
+  const renderItem: ListRenderItem<Crypto> = ({ item }) => <Coin crypto={item} />
+
   return (
     <View style={styles.homeContainer}>
-      {/* Header */}
       <View style={styles.headerContainer}>
         <Text style={styles.headerTitle}>CryptoTracker Pro</Text>
         <Image source={userPhoto} />
       </View>
-      {/* Crypto Coins */}
       <View>
-        {(list.length === 0) ?
-          <View>
-          </View> :
-          <FlatList
-            data={list}
-            keyExtractor={item => item.name}
-            renderItem={({ item }) => (
-              <Coin crypto={item} />
-            )}
-          />
-        }
+        <FlatList
+          data={list}
+          keyExtractor={item => item.name}
+          renderItem={renderItem}
+        />
         <TouchableOpacity
           onPress={() => console.log('Futura Screen')}
           style={styles.addCryptoTextContainer}>

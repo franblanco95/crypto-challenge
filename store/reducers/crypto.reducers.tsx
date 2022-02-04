@@ -9,7 +9,7 @@ const initialState = {
     cryptoList: []
 }
 
-export const CryptoReducer = (state: State = initialState, action: Action) => {
+export const CryptoReducer = (state: State = initialState, action: Action): State => {
     switch (action.type) {
         case READ_DATA:
             return {

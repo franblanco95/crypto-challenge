@@ -11,12 +11,12 @@ export interface Crypto {
 
 export interface AddAction {
     type: 'ADD_CRYPTO';
-    payload?: Crypto;
+    payload: Crypto;
 }
 
 export interface ReadAction {
     type: 'READ_DATA';
-    payload?: Crypto[] | null;
+    payload: Crypto[];
 }
 
-export type Action = AddAction | ReadAction;
+export type Action = ReadAction | AddAction;

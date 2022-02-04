@@ -4,10 +4,9 @@ import { NavigationContainer } from '@react-navigation/native';
 import { Routes } from './Routes';
 import HomeScreen from '../screens/HomeScreen';
 
+const Stack = createNativeStackNavigator();
+
 const MainNavigator: FC = () => {
-
-  const Stack = createNativeStackNavigator();
-
   return (
     <NavigationContainer>
       <Stack.Navigator

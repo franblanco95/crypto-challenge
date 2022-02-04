@@ -26,7 +26,6 @@ export default StyleSheet.create({
         fontSize: 14,
         color: colors.text,
     },
-
     cryptoValuesContainer: {
         alignItems: 'flex-end'
     }

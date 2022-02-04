@@ -6,18 +6,17 @@ export const READ_DATA = 'READ_DATA'
 
 export const readData = () => {
     return async (dispatch: Dispatch<Action>) => {
-        await AsyncStorage.getItem('@coin').then(data => {
-            if (data) {
-                const array = JSON.parse(data);
-                // console.log(`Estoy en async storage ${array}`);
-                dispatch({
-                    type: READ_DATA,
-                    payload: array
-                })
-            } else {
-                // console.log('No hay nada en async storage');
-            }
-        })
+        await AsyncStorage.getItem('@coin')
+            .then(data => {
+                if (data) {
+                    const array = JSON.parse(data);
+                    dispatch({
+                        type: READ_DATA,
+                        payload: array
+                    })
+                }
+            })
+            .catch(err => { throw (err) })
 
     }
 }
