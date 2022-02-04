@@ -1,13 +1,18 @@
 import React, { FC } from 'react';
-import { StyleSheet, Text, View, Image } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import styles from './styles';
 
 MaterialIcon.loadFont();
 
-const Coin: FC = ({ crypto }: any) => {
+interface Props {
+    crypto: any
+}
+
+const Coin: FC<Props> = ({ crypto }) => {
     return (
         <View style={styles.cryptoContainer}>
-            <View style={{ flexDirection: 'row' }}>
+            <View style={styles.rowDirection}>
                 <Image
                     source={crypto.image}
                     style={styles.cryptoImage} />
@@ -16,10 +21,9 @@ const Coin: FC = ({ crypto }: any) => {
                     <Text style={styles.cryptoTextInitials}>{crypto.initials}</Text>
                 </View>
             </View>
-
             <View style={styles.cryptoValuesContainer}>
                 <Text style={styles.cryptoTextName}>$ {crypto.value}</Text>
-                <View style={{ flexDirection: 'row' }}>
+                <View style={styles.rowDirection}>
                     <MaterialIcon name={crypto.icon} size={17} color={crypto.color} />
                     <Text style={{ color: (crypto.color) }}>{crypto.metric} %</Text>
                 </View>
@@ -30,31 +34,3 @@ const Coin: FC = ({ crypto }: any) => {
 };
 
 export default Coin;
-
-const styles = StyleSheet.create({
-    cryptoContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginHorizontal: 24,
-        paddingVertical: 10,
-        marginVertical: 10,
-        borderBottomColor: '#E4E8EB',
-        borderBottomWidth: 1,
-    },
-    cryptoImage: {
-        marginRight: 8,
-    },
-    cryptoTextName: {
-        fontWeight: '600',
-        fontSize: 16,
-    },
-    cryptoTextInitials: {
-        fontWeight: '400',
-        fontSize: 14,
-        color: '#56626E'
-    },
-
-    cryptoValuesContainer: {
-        alignItems: 'flex-end'
-    }
-});

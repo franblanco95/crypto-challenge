@@ -1,5 +1,3 @@
-// import image1 from '../assets/images/btc.png'
-
 import { Crypto } from "../interfaces/types";
 
 export const crypto: Crypto[] = [

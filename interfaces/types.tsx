@@ -1,5 +1,3 @@
-// Constants Interfaces
-
 export interface Crypto {
     id: number,
     name: string,
@@ -10,8 +8,6 @@ export interface Crypto {
     icon: string,
     color: string,
 }
-
-// Actions Interfaces
 
 export interface AddAction {
     type: 'ADD_CRYPTO';

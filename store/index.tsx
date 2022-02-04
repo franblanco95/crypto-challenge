@@ -4,7 +4,6 @@ import { CryptoReducer } from "./reducers/crypto.reducers";
 
 export type RootState = ReturnType<typeof RootReducer>
 
-
 const RootReducer = combineReducers({
     cripto: CryptoReducer,
 });

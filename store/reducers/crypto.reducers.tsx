@@ -16,9 +16,7 @@ export const CryptoReducer = (state: State = initialState, action: Action) => {
                 ...state,
                 cryptoList: action.payload
             }
-
         default:
             return state;
     }
-
 }

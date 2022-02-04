@@ -1,18 +1,10 @@
-import React, { FC, useEffect } from 'react';
-import { StyleSheet } from 'react-native';
+import React, { FC } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
+import { Routes } from './Routes';
 import HomeScreen from '../screens/HomeScreen';
-import { readData } from '../store/actions/crypto.actions';
-import { useDispatch } from 'react-redux';
 
 const MainNavigator: FC = () => {
-
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(readData())
-  }, [])
 
   const Stack = createNativeStackNavigator();
 
@@ -24,18 +16,15 @@ const MainNavigator: FC = () => {
         }}
       >
         <Stack.Screen
-          name="Home"
+          name={Routes.HOME}
           component={HomeScreen}
           options={{
             title: 'Crypto Tracker Pro',
-          }} />
-
-
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 };
 
 export default MainNavigator;
-
-const styles = StyleSheet.create({});
