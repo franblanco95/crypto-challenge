@@ -3,13 +3,10 @@ import { Provider } from 'react-redux';
 import MainNavigator from './navigation/MainNavigator';
 import store from './store'
 
-const App: FC = () => {
-
-  return (
-    <Provider store={store}>
-      <MainNavigator />
-    </Provider>
-  );
-};
+const App: FC = () => (
+  <Provider store={store}>
+    <MainNavigator />
+  </Provider>
+);
 
 export default App;
