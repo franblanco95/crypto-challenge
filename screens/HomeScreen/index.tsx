@@ -13,14 +13,12 @@ interface Props {
 }
 
 const HomeScreen: FC<Props> = ({ navigation }) => {
-
   const dispatch = useDispatch()
+  const list = useSelector((state: RootState) => state.cripto.cryptoList)
 
   useEffect(() => {
     dispatch(readData())
   }, [])
-
-  const list = useSelector((state: RootState) => state.cripto.cryptoList)
 
   const renderItem: ListRenderItem<Crypto> = ({ item }) => <Coin crypto={item} />
 
@@ -37,7 +35,6 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
           renderItem={renderItem}
         />
         <TouchableOpacity
-          onPress={() => console.log('Futura Screen')}
           style={styles.addCryptoTextContainer}>
           <Text style={styles.addCryptoText}>+ Add a Cryptocurrency</Text>
         </TouchableOpacity>
