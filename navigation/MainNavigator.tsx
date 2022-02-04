@@ -6,24 +6,22 @@ import HomeScreen from '../screens/HomeScreen';
 
 const Stack = createNativeStackNavigator();
 
-const MainNavigator: FC = () => {
-  return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false,
+const MainNavigator: FC = () => (
+  <NavigationContainer>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
+      <Stack.Screen
+        name={Routes.HOME}
+        component={HomeScreen}
+        options={{
+          title: 'Crypto Tracker Pro',
         }}
-      >
-        <Stack.Screen
-          name={Routes.HOME}
-          component={HomeScreen}
-          options={{
-            title: 'Crypto Tracker Pro',
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
-};
+      />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
 
 export default MainNavigator;

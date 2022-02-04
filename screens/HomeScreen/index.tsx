@@ -1,5 +1,5 @@
 import React, { FC, useEffect } from 'react';
-import { Text, TouchableOpacity, View, ScrollView, Image, FlatList, ListRenderItem } from 'react-native';
+import { Text, TouchableOpacity, View, Image, FlatList, ListRenderItem } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import Coin from '../../components/Coin';
 import { Crypto } from '../../interfaces/types';
