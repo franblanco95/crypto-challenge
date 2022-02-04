@@ -1,4 +1,4 @@
-import { Crypto } from "../interfaces/types";
+import { Crypto } from "../interfaces";
 
 export const crypto: Crypto[] = [
     {
@@ -31,5 +31,4 @@ export const crypto: Crypto[] = [
         icon: 'south-west',
         color: 'red',
     },
-
 ]

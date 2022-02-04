@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Dispatch } from "react";
-import { Action } from "../../interfaces/types";
+import { Action } from "../../interfaces";
 
 export const READ_DATA = 'READ_DATA'
 

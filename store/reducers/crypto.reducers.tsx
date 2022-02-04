@@ -1,4 +1,4 @@
-import { Action, Crypto } from "../../interfaces/types";
+import { Action, Crypto } from "../../interfaces"
 import { READ_DATA } from "../actions/crypto.actions"
 
 type State = {

@@ -1,12 +1,12 @@
 import React, { FC, useEffect } from 'react';
 import { Text, TouchableOpacity, View, Image, FlatList, ListRenderItem } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
+import { userPhoto } from '../../assets/images';
 import Coin from '../../components/Coin';
 import { Crypto } from '../../interfaces/types';
 import { RootState } from '../../store';
 import { readData } from '../../store/actions/crypto.actions';
 import styles from './styles';
-import userPhoto from '../../assets/images/girl.png'
 
 interface Props {
   navigation: any,
@@ -14,7 +14,7 @@ interface Props {
 
 const HomeScreen: FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch()
-  const list = useSelector((state: RootState) => state.cripto.cryptoList)
+  const cryptoList = useSelector((state: RootState) => state.cripto.cryptoList)
 
   useEffect(() => {
     dispatch(readData())
@@ -30,8 +30,8 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
       </View>
       <View>
         <FlatList
-          data={list}
-          keyExtractor={item => item.name}
+          data={cryptoList}
+          keyExtractor={item => String(item.id)}
           renderItem={renderItem}
         />
         <TouchableOpacity
