@@ -1,6 +1,6 @@
 import { Crypto } from "../interfaces";
 
-export const crypto: Crypto[] = [
+export const cryptos: Crypto[] = [
     {
         id: 1,
         name: 'Bitcoin',

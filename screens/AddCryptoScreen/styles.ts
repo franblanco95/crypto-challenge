@@ -25,7 +25,6 @@ export default StyleSheet.create({
         paddingLeft: 8,
         borderWidth: 1,
         borderRadius: 4,
-        borderColor: colors.input,
         fontSize: 16,
     },
     addButton: {
@@ -41,5 +40,12 @@ export default StyleSheet.create({
     addText: {
         fontWeight: '600',
         fontSize: 18,
+        color: colors.primary,
+    },
+    addTextOff: {
+        fontWeight: '600',
+        fontSize: 18,
+        color: colors.primary,
+        opacity: 0.2,
     }
 });

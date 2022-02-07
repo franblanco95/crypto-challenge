@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { userPhoto } from '../../assets/images';
 import Coin from '../../components/Coin';
 import { Crypto } from '../../interfaces/types';
+import { Routes } from '../../navigation/Routes';
 import { RootState } from '../../store';
 import { readData } from '../../store/actions/crypto.actions';
 import styles from './styles';
@@ -22,6 +23,8 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
 
   const renderItem: ListRenderItem<Crypto> = ({ item }) => <Coin crypto={item} />
 
+  const handlerChangeScreen = () => navigation.navigate(Routes.ADD_CRYPTO)
+
   return (
     <View style={styles.homeContainer}>
       <View style={styles.headerContainer}>
@@ -35,8 +38,9 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
           renderItem={renderItem}
         />
         <TouchableOpacity
-          onPress={() => navigation.navigate("AddCrypto")}
-          style={styles.addCryptoTextContainer}>
+          onPress={handlerChangeScreen}
+          style={styles.addCryptoTextContainer}
+        >
           <Text style={styles.addCryptoText}>+ Add a Cryptocurrency</Text>
         </TouchableOpacity>
       </View>

@@ -6,7 +6,7 @@ const colors = {
     border: '#E4E8EB',
     buttonbkg: '#FBD24D',
     input: '#B7C0C6',
-
+    inputoff: '#FBD24D',
 }
 
 export default colors;

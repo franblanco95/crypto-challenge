@@ -1,8 +1,7 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Dispatch } from "react";
-import { crypto } from "../../constants/crypto";
-import { Action } from "../../interfaces";
-
+import { cryptos } from "../../constants/crypto";
+import { Action, Crypto } from "../../interfaces";
 
 export const READ_DATA = 'READ_DATA'
 export const ADD_CRYPTO = 'ADD_CRYPTO'
@@ -25,26 +24,27 @@ export const readData = () => {
 }
 
 export const addCripto = (textInput: string) => {
-    return async (dispatch: Dispatch<Action>) => {
-        crypto.map(cryptos => {
-            if (textInput === cryptos.name || textInput === cryptos.initials) {
-                const moneda = cryptos
-                dispatch({
-                    type: ADD_CRYPTO,
-                    payload: moneda
-                })
-            } else {
-                console.log('else');
-            }
-        })
-    }
-}
+    return async (dispatch: Dispatch<Action>, getState: any) => {
+        const { cryptoList } = getState().cripto
 
-try {
-    await AsyncStorage.setItem('@coinList', JSON.stringify(value))
-    console.log('Se agrego a Async Storage');
-} catch (e) {
-    console.log(e);
-    console.log('Hay un error');
-}
+        const newCoin: Crypto = cryptos.find((crypto: Crypto) => {
+            return (textInput === crypto.name || textInput === crypto.initials)
+        })
+
+        const addedCrypto = cryptoList.findIndex((crypto: Crypto) => crypto.id === newCoin?.id)
+
+        if (addedCrypto === -1 && newCoin) {
+            dispatch({
+                type: ADD_CRYPTO,
+                payload: newCoin
+            })
+
+            const updatedList = [...cryptoList]
+            try {
+                await AsyncStorage.setItem('@coinList', JSON.stringify(updatedList))
+            } catch (e) {
+                throw (e)
+            }
+        }
+    }
 }
