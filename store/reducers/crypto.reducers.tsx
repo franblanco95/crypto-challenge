@@ -1,20 +1,26 @@
 import { Action, Crypto } from "../../interfaces"
-import { READ_DATA } from "../actions/crypto.actions"
+import { ADD_CRYPTO, READ_DATA } from "../actions/crypto.actions"
 
-type State = {
+export type State = {
     cryptoList: Crypto[],
 }
 
-const initialState = {
+const initialState: State = {
     cryptoList: []
 }
 
-export const CryptoReducer = (state: State = initialState, action: Action): State => {
-    switch (action.type) {
+export const CryptoReducer = (state: State = initialState, { type, payload }: Action): State => {
+    switch (type) {
+        case ADD_CRYPTO:
+            return {
+                ...state,
+                cryptoList: [...state.cryptoList, payload]
+            }
+
         case READ_DATA:
             return {
                 ...state,
-                cryptoList: action.payload
+                cryptoList: payload
             }
         default:
             return state;
