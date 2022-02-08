@@ -5,6 +5,7 @@ export default StyleSheet.create({
     cryptoContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        alignItems: 'center',
         marginHorizontal: 24,
         paddingVertical: 10,
         marginVertical: 10,
@@ -12,10 +13,13 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
     },
     rowDirection: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        alignItems: 'center',
     },
     cryptoImage: {
         marginRight: 8,
+        width: 48,
+        height: 48,
     },
     cryptoTextName: {
         fontWeight: '600',

@@ -27,8 +27,8 @@ export const addCripto = (textInput: string) => {
     return async (dispatch: Dispatch<Action>, getState: any) => {
         const { cryptoList } = getState().cripto
 
-        const newCoin: Crypto = cryptos.find((crypto: Crypto) => (
-            textInput === crypto.name || textInput === crypto.initials
+        const newCoin: Crypto | undefined = cryptos.find(({ name, initials }) => (
+            textInput === name || textInput === initials
         ))
 
         const addedCrypto = cryptoList.findIndex((crypto: Crypto) => crypto.id === newCoin?.id)
@@ -43,7 +43,7 @@ export const addCripto = (textInput: string) => {
             try {
                 await AsyncStorage.setItem('@coinList', JSON.stringify(updatedList))
             } catch (e) {
-                throw (e)
+                console.error(e)
             }
         }
     }

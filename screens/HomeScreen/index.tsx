@@ -1,4 +1,3 @@
-import { NavigationHelpersContext } from '@react-navigation/native';
 import React, { FC, useEffect } from 'react';
 import { Text, TouchableOpacity, View, Image, FlatList, ListRenderItem } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';

@@ -9,11 +9,13 @@ interface Props {
     crypto: any
 }
 
+let nf = new Intl.NumberFormat('en-US')
+
 const Coin: FC<Props> = ({ crypto }) => (
     <View style={styles.cryptoContainer}>
         <View style={styles.rowDirection}>
             <Image
-                source={crypto.image}
+                source={{ uri: crypto.image }}
                 style={styles.cryptoImage} />
             <View>
                 <Text style={styles.cryptoTextName}>{crypto.name}</Text>
@@ -21,7 +23,7 @@ const Coin: FC<Props> = ({ crypto }) => (
             </View>
         </View>
         <View style={styles.cryptoValuesContainer}>
-            <Text style={styles.cryptoTextName}>$ {crypto.value}</Text>
+            <Text style={styles.cryptoTextName}>$ {nf.format(crypto.value)}</Text>
             <View style={styles.rowDirection}>
                 <MaterialIcon name={crypto.icon} size={17} color={crypto.color} />
                 <Text style={{ color: (crypto.color) }}>{crypto.metric} %</Text>
