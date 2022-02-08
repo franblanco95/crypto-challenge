@@ -9,7 +9,7 @@ interface Props {
     crypto: any
 }
 
-let nf = new Intl.NumberFormat('en-US')
+const nf = new Intl.NumberFormat('en-US')
 
 const Coin: FC<Props> = ({ crypto }) => (
     <View style={styles.cryptoContainer}>

@@ -2,13 +2,10 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { Dispatch } from "react";
 import { cryptos } from "../../constants/crypto";
 import { Action, Crypto } from "../../interfaces";
-import { LogBox } from 'react-native'
 import { RootState } from "..";
 
 export const READ_DATA = 'READ_DATA'
 export const ADD_CRYPTO = 'ADD_CRYPTO'
-
-LogBox.ignoreLogs(['Warning: This synthetic'])
 
 export const readData = () => {
     return async (dispatch: Dispatch<Action>) => {
@@ -32,9 +29,9 @@ export const addCripto = (textInput: string) => {
         const { cryptoList } = getState().cripto
 
         const newCrypto: Crypto | undefined = cryptos.find(({ name, initials }) => {
-            const addedCrypto: Crypto | undefined = cryptoList.find(({ name, initials }) => {
-                return (textInput === name || textInput === initials)
-            })
+            const addedCrypto: Crypto | undefined = cryptoList.find(({ name, initials }) =>
+                (textInput === name || textInput === initials)
+            )
             return !addedCrypto && (name === textInput || initials === textInput)
         })
         if (newCrypto) {

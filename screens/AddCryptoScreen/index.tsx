@@ -25,7 +25,7 @@ const AddCryptoScreen: FC<Props> = ({ navigation }) => {
         <SafeAreaView>
             <View style={styles.addCryptoContainer}>
                 <TouchableOpacity
-                    onPress={navigation.goBack.bind()}>
+                    onPress={navigation.goBack}>
                     <Text style={styles.backText}>&lt; Back to list</Text>
                 </TouchableOpacity>
                 <View style={styles.inputContainer}>

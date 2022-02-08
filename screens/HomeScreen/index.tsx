@@ -36,7 +36,7 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
           renderItem={renderItem}
         />
         <TouchableOpacity
-          onPress={navigation.navigate.bind(null, Routes.ADD_CRYPTO)}
+          onPress={() => navigation.navigate(Routes.ADD_CRYPTO)}
           style={styles.addCryptoTextContainer}
         >
           <Text style={styles.addCryptoText}>+ Add a Cryptocurrency</Text>
