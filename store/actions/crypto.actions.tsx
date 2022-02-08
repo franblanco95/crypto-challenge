@@ -20,8 +20,13 @@ export const readData = () => {
                 }
             })
             .catch(err => { console.error(err) })
-
     }
+}
+
+export const fetchData = async () => {
+    const response = await fetch('https://data.messari.io/api/v2/assets?fields=id,name,symbol,metrics/market_data/price_usd,metrics/market_data/percent_change_usd_last_24_hours')
+    const result = await response.json()
+    console.log(result.data);
 }
 
 export const addCripto = (textInput: string) => {
@@ -40,7 +45,7 @@ export const addCripto = (textInput: string) => {
                 payload: newCrypto
             })
 
-            const updatedList = [...cryptoList]
+            const updatedList = [...cryptoList, newCrypto]
             try {
                 await AsyncStorage.setItem('@coinList', JSON.stringify(updatedList))
             } catch (e) {
