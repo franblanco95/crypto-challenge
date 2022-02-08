@@ -6,7 +6,7 @@ import Coin from '../../components/Coin';
 import { Crypto } from '../../interfaces/types';
 import { Routes } from '../../navigation/Routes';
 import { RootState } from '../../store';
-import { fetchData, readData } from '../../store/actions/crypto.actions';
+import { readData } from '../../store/actions/crypto.actions';
 import styles from './styles';
 
 interface Props {
@@ -19,7 +19,6 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
 
   useEffect(() => {
     dispatch(readData())
-    fetchData()
   }, [])
 
   const renderItem: ListRenderItem<Crypto> = ({ item }) => <Coin crypto={item} />
