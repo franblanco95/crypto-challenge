@@ -47,5 +47,3 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
 };
 
 export default HomeScreen;
-
-

@@ -5,7 +5,7 @@ export type State = {
     cryptoList: Crypto[],
 }
 
-const initialState = {
+const initialState: State = {
     cryptoList: []
 }
 
@@ -16,6 +16,7 @@ export const CryptoReducer = (state: State = initialState, action: Action): Stat
                 ...state,
                 cryptoList: [...state.cryptoList, action.payload]
             }
+
         case READ_DATA:
             return {
                 ...state,
