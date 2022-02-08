@@ -18,7 +18,7 @@ export const readData = () => {
                     })
                 }
             })
-            .catch(err => { throw (err) })
+            .catch(err => { console.error(err) })
 
     }
 }
@@ -27,9 +27,9 @@ export const addCripto = (textInput: string) => {
     return async (dispatch: Dispatch<Action>, getState: any) => {
         const { cryptoList } = getState().cripto
 
-        const newCoin: Crypto = cryptos.find((crypto: Crypto) => {
-            return (textInput === crypto.name || textInput === crypto.initials)
-        })
+        const newCoin: Crypto = cryptos.find((crypto: Crypto) => (
+            textInput === crypto.name || textInput === crypto.initials
+        ))
 
         const addedCrypto = cryptoList.findIndex((crypto: Crypto) => crypto.id === newCoin?.id)
 

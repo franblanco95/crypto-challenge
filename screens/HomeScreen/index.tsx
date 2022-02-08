@@ -1,3 +1,4 @@
+import { NavigationHelpersContext } from '@react-navigation/native';
 import React, { FC, useEffect } from 'react';
 import { Text, TouchableOpacity, View, Image, FlatList, ListRenderItem } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
@@ -23,8 +24,6 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
 
   const renderItem: ListRenderItem<Crypto> = ({ item }) => <Coin crypto={item} />
 
-  const handlerChangeScreen = () => navigation.navigate(Routes.ADD_CRYPTO)
-
   return (
     <View style={styles.homeContainer}>
       <View style={styles.headerContainer}>
@@ -38,7 +37,7 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
           renderItem={renderItem}
         />
         <TouchableOpacity
-          onPress={handlerChangeScreen}
+          onPress={navigation.navigate.bind(null, Routes.ADD_CRYPTO)}
           style={styles.addCryptoTextContainer}
         >
           <Text style={styles.addCryptoText}>+ Add a Cryptocurrency</Text>

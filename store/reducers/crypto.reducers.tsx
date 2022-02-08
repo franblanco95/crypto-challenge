@@ -12,12 +12,10 @@ const initialState = {
 export const CryptoReducer = (state: State = initialState, action: Action): State => {
     switch (action.type) {
         case ADD_CRYPTO:
-            const updateList = [...state.cryptoList, action.payload]
             return {
                 ...state,
-                cryptoList: updateList
+                cryptoList: [...state.cryptoList, action.payload]
             }
-
         case READ_DATA:
             return {
                 ...state,
