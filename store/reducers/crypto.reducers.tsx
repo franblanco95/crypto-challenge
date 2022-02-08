@@ -9,18 +9,18 @@ const initialState: State = {
     cryptoList: []
 }
 
-export const CryptoReducer = (state: State = initialState, action: Action): State => {
-    switch (action.type) {
+export const CryptoReducer = (state: State = initialState, { type, payload }: Action): State => {
+    switch (type) {
         case ADD_CRYPTO:
             return {
                 ...state,
-                cryptoList: [...state.cryptoList, action.payload]
+                cryptoList: [...state.cryptoList, payload]
             }
 
         case READ_DATA:
             return {
                 ...state,
-                cryptoList: action.payload
+                cryptoList: payload
             }
         default:
             return state;
