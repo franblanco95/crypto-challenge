@@ -34,7 +34,7 @@ export const addCripto = (textInput: string) => {
             let message = "Hubo un problema"
             const errorResponse = await response.json()
             const errorID = errorResponse.status.error_message
-            if (errorID === "Not Found") message = "This crypto doesn't exists"
+            if (errorID === "Not Found") message = "This cryptocurrency doesn't exist"
             Alert.alert(message)
 
         } else {
@@ -56,7 +56,7 @@ export const addCripto = (textInput: string) => {
                     console.error(e)
                 }
             } else {
-                Alert.alert('This crypto is already added')
+                Alert.alert('This cryptocurrency is already added')
             }
         }
     }
