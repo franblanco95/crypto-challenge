@@ -4,6 +4,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import colors from '../../assets/colors/colors';
 import { Crypto } from '../../interfaces';
 import styles from './styles';
+import { API_IMG } from '@env'
 
 MaterialIcon.loadFont();
 
@@ -24,7 +25,7 @@ const Coin: FC<Props> = ({ crypto }) => {
         <View style={styles.cryptoContainer}>
             <View style={styles.rowDirection}>
                 <Image
-                    source={{ uri: `https://messari.io/asset-images/${crypto.id}/128.png?v=2` }}
+                    source={{ uri: `${API_IMG}${crypto.id}/128.png?v=2` }}
                     style={styles.cryptoImage} />
                 <View>
                     <Text style={styles.cryptoTextName}>{name}</Text>

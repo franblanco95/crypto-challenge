@@ -31,10 +31,9 @@ export const addCripto = (textInput: string) => {
 
         try {
             const response = await fetch(`${API_URL}/v1/assets/${textInput.toLowerCase()}/metrics?fields=id,symbol,name,market_data/price_usd,market_data/percent_change_usd_last_24_hours`)
+            const result = await response.json()
 
             if (response.ok) {
-                const result = await response.json()
-
                 const addedCrypto: Crypto | undefined = cryptoList.find(({ name, symbol }) =>
                     (textInput.toLowerCase() === name.toLowerCase() || textInput.toLowerCase() === symbol.toLowerCase())
                 )
@@ -61,16 +60,27 @@ export const addCripto = (textInput: string) => {
 
             } else {
                 let message = "There was a problem"
-                const errorResponse = await response.json()
-                const errorID = errorResponse.status.error_message
-                if (errorID === "Not Found") message = "This cryptocurrency doesn't exist"
-                Alert.alert('Error', message,
-                    [
-                        {
-                            text: 'Retry'
-                        }
-                    ]
-                )
+                const { status: { error_message, error_code } } = result
+                if (error_message === "Not Found") {
+                    message = "This cryptocurrency doesn't exist"
+                    Alert.alert('Error', message,
+                        [
+                            {
+                                text: 'OK',
+                            }
+                        ]
+                    )
+                } else if (error_code === 500) {
+                    message = "The server encountered an unexpected condition, please try again later"
+                    Alert.alert('Error', message,
+                        [
+                            {
+                                text: 'Retry',
+                                onPress: () => addCripto(textInput)
+                            }
+                        ]
+                    )
+                }
 
             }
         } catch (err) {
