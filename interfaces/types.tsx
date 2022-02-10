@@ -20,4 +20,9 @@ export interface ReadAction {
     payload: Crypto[];
 }
 
-export type Action = ReadAction | AddAction;
+export interface UpdateAction {
+    type: 'UPDATE_DATA';
+    payload: Crypto[]
+}
+
+export type Action = ReadAction | AddAction | UpdateAction;

@@ -1,5 +1,5 @@
 import { Action, Crypto } from "../../interfaces"
-import { ADD_CRYPTO, READ_DATA } from "../actions/crypto.actions"
+import { ADD_CRYPTO, READ_DATA, UPDATE_DATA } from "../actions/crypto.actions"
 
 export type State = {
     cryptoList: Crypto[],
@@ -18,6 +18,14 @@ export const CryptoReducer = (state: State = initialState, { type, payload }: Ac
             }
 
         case READ_DATA:
+            return {
+                ...state,
+                cryptoList: payload
+            }
+        case UPDATE_DATA:
+            console.log('soy payload')
+            console.log(payload)
+            console.log('soy payload')
             return {
                 ...state,
                 cryptoList: payload

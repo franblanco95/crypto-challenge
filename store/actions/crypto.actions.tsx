@@ -7,6 +7,7 @@ import { API_URL } from '@env'
 
 export const READ_DATA = 'READ_DATA'
 export const ADD_CRYPTO = 'ADD_CRYPTO'
+export const UPDATE_DATA = 'UPDATE_DATA'
 
 export const readData = () => {
     return async (dispatch: Dispatch<Action>) => {
@@ -85,6 +86,32 @@ export const addCripto = (textInput: string) => {
             }
         } catch (err) {
             console.error(err)
+        }
+    }
+}
+
+export const updateData = () => {
+    return async (dispatch: Dispatch<Action>, getState: () => RootState) => {
+
+        const { cryptoList } = getState().cripto
+        const newArray: Crypto[] = []
+
+        if (cryptoList.length > 0) {
+            console.log('asd')
+            cryptoList.map((item => {
+                fetch(`${API_URL}/v1/assets/${item.name.toLowerCase()}/metrics?fields=id,symbol,name,market_data/price_usd,market_data/percent_change_usd_last_24_hours`)
+                    .then(response => response.json())
+                    .then(data => newArray.push(data.data))
+
+            }))
+            setTimeout(() => {
+                if (newArray.length === cryptoList.length) {
+                    dispatch({
+                        type: UPDATE_DATA,
+                        payload: newArray
+                    })
+                }
+            }, 5000)
         }
     }
 }
