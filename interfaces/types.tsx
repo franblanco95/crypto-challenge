@@ -1,12 +1,13 @@
 export interface Crypto {
-    id: number,
-    name: string,
-    initials: string,
-    image: string,
-    value: number,
-    metric: number,
-    icon: string,
-    color: string,
+    id: string;
+    name: string;
+    symbol: string;
+    market_data: MarketData;
+}
+
+export interface MarketData {
+    price_usd: number;
+    percent_change_usd_last_24_hours: number;
 }
 
 export interface AddAction {

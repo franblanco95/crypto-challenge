@@ -7,6 +7,8 @@ const colors = {
     buttonbkg: '#FBD24D',
     input: '#B7C0C6',
     inputoff: '#FBD24D',
+    positive: '#008000',
+    negative: '#FF0000',
 }
 
 export default colors;
