@@ -22,14 +22,6 @@ export const CryptoReducer = (state: State = initialState, { type, payload }: Ac
                 ...state,
                 cryptoList: payload
             }
-        case UPDATE_DATA:
-            console.log('soy payload')
-            console.log(payload)
-            console.log('soy payload')
-            return {
-                ...state,
-                cryptoList: payload
-            }
         default:
             return state;
     }

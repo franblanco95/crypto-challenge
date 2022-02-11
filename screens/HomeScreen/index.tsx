@@ -17,17 +17,15 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
   const dispatch = useDispatch()
   const cryptoList = useSelector((state: RootState) => state.cripto.cryptoList)
 
-  useEffect(() => {
-    dispatch(readData())
-  }, [])
+  const orderList = (a: Crypto, b: Crypto) => a.name.localeCompare(b.name)
 
   // useEffect(() => {
   //   const interval = setInterval(() => {
-  //     dispatch(updateData())
-  //   }, 25000)
-
+  //     dispatch(readData())
+  //   }, 15000)
   //   return () => clearInterval(interval)
-  // }, [])
+
+  // }, [cryptoList])
 
   const renderItem: ListRenderItem<Crypto> = ({ item }) => <Coin crypto={item} />
 
@@ -39,7 +37,7 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
       </View>
       <View>
         <FlatList
-          data={cryptoList}
+          data={cryptoList.sort(orderList)}
           keyExtractor={item => String(item.id)}
           renderItem={renderItem}
         />

@@ -10,15 +10,32 @@ export const ADD_CRYPTO = 'ADD_CRYPTO'
 export const UPDATE_DATA = 'UPDATE_DATA'
 
 export const readData = () => {
+
+    const newArray: Crypto[] = []
+
     return async (dispatch: Dispatch<Action>) => {
         await AsyncStorage.getItem('@coinList')
             .then(data => {
                 if (data) {
                     const array = JSON.parse(data);
-                    dispatch({
-                        type: READ_DATA,
-                        payload: array
-                    })
+                    if (array.length > 0) {
+                        array.map((item: Crypto) => {
+                            fetch(`${API_URL}/v1/assets/${item.name.toLowerCase()}/metrics?fields=id,symbol,name,market_data/price_usd,market_data/percent_change_usd_last_24_hours`)
+                                .then(response => response.json())
+                                .then(data => newArray.push(data.data))
+
+                        })
+                        console.log('test')
+                        setTimeout(() => {
+                            if (newArray.length === array.length) {
+                                console.log('test2')
+                                dispatch({
+                                    type: READ_DATA,
+                                    payload: newArray
+                                })
+                            }
+                        }, 5000)
+                    }
                 }
             })
             .catch(err => { console.error(err) })
@@ -86,32 +103,6 @@ export const addCripto = (textInput: string) => {
             }
         } catch (err) {
             console.error(err)
-        }
-    }
-}
-
-export const updateData = () => {
-    return async (dispatch: Dispatch<Action>, getState: () => RootState) => {
-
-        const { cryptoList } = getState().cripto
-        const newArray: Crypto[] = []
-
-        if (cryptoList.length > 0) {
-            console.log('asd')
-            cryptoList.map((item => {
-                fetch(`${API_URL}/v1/assets/${item.name.toLowerCase()}/metrics?fields=id,symbol,name,market_data/price_usd,market_data/percent_change_usd_last_24_hours`)
-                    .then(response => response.json())
-                    .then(data => newArray.push(data.data))
-
-            }))
-            setTimeout(() => {
-                if (newArray.length === cryptoList.length) {
-                    dispatch({
-                        type: UPDATE_DATA,
-                        payload: newArray
-                    })
-                }
-            }, 5000)
         }
     }
 }
