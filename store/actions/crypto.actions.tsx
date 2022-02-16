@@ -7,17 +7,30 @@ import { API_URL } from '@env'
 
 export const READ_DATA = 'READ_DATA'
 export const ADD_CRYPTO = 'ADD_CRYPTO'
+export const UPDATE_DATA = 'UPDATE_DATA'
 
 export const readData = () => {
+
+    const newArray: Crypto[] = []
+
     return async (dispatch: Dispatch<Action>) => {
         await AsyncStorage.getItem('@coinList')
             .then(data => {
                 if (data) {
                     const array = JSON.parse(data);
-                    dispatch({
-                        type: READ_DATA,
-                        payload: array
-                    })
+                    if (array.length > 0) {
+                        array.map(async (item: Crypto) => {
+                            const response = await fetch(`${API_URL}/v1/assets/${item.name.toLowerCase()}/metrics?fields=id,symbol,name,market_data/price_usd,market_data/percent_change_usd_last_24_hours`)
+                            const result = await response.json()
+                            newArray.push(result.data)
+                            if (newArray.length === array.length) {
+                                dispatch({
+                                    type: READ_DATA,
+                                    payload: newArray
+                                })
+                            }
+                        })
+                    }
                 }
             })
             .catch(err => { console.error(err) })

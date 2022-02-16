@@ -1,5 +1,5 @@
 import { Action, Crypto } from "../../interfaces"
-import { ADD_CRYPTO, READ_DATA } from "../actions/crypto.actions"
+import { ADD_CRYPTO, READ_DATA, UPDATE_DATA } from "../actions/crypto.actions"
 
 export type State = {
     cryptoList: Crypto[],
