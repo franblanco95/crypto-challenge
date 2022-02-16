@@ -6,7 +6,7 @@ import Coin from '../../components/Coin';
 import { Crypto } from '../../interfaces/types';
 import { Routes } from '../../navigation/Routes';
 import { RootState } from '../../store';
-import { readData, updateData } from '../../store/actions/crypto.actions';
+import { readData } from '../../store/actions/crypto.actions';
 import styles from './styles';
 
 interface Props {
@@ -19,13 +19,13 @@ const HomeScreen: FC<Props> = ({ navigation }) => {
 
   const orderList = (a: Crypto, b: Crypto) => a.name.localeCompare(b.name)
 
-  // useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     dispatch(readData())
-  //   }, 15000)
-  //   return () => clearInterval(interval)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      dispatch(readData())
+    }, 15000)
+    return () => clearInterval(interval)
 
-  // }, [cryptoList])
+  }, [cryptoList])
 
   const renderItem: ListRenderItem<Crypto> = ({ item }) => <Coin crypto={item} />
 

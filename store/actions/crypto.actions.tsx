@@ -19,22 +19,17 @@ export const readData = () => {
                 if (data) {
                     const array = JSON.parse(data);
                     if (array.length > 0) {
-                        array.map((item: Crypto) => {
-                            fetch(`${API_URL}/v1/assets/${item.name.toLowerCase()}/metrics?fields=id,symbol,name,market_data/price_usd,market_data/percent_change_usd_last_24_hours`)
-                                .then(response => response.json())
-                                .then(data => newArray.push(data.data))
-
-                        })
-                        console.log('test')
-                        setTimeout(() => {
+                        array.map(async (item: Crypto) => {
+                            const response = await fetch(`${API_URL}/v1/assets/${item.name.toLowerCase()}/metrics?fields=id,symbol,name,market_data/price_usd,market_data/percent_change_usd_last_24_hours`)
+                            const result = await response.json()
+                            newArray.push(result.data)
                             if (newArray.length === array.length) {
-                                console.log('test2')
                                 dispatch({
                                     type: READ_DATA,
                                     payload: newArray
                                 })
                             }
-                        }, 5000)
+                        })
                     }
                 }
             })
